@@ -4,6 +4,8 @@ import android.R.attr.title
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.DividerDefaults.Thickness
@@ -33,7 +35,7 @@ fun FormIsian (
     Scaffold(modifier = Modifier,
         {
             TopAppBar(
-                title = {Text(stringResource(id= R.string.home), color = color.white)},
+                title = {Text(stringResource(id= R.string.home), color = Color.White)},
                 colors = TopAppBarDefaults.mediumTopAppBarColors(
                     colorResource(id = R.color.teal_700))
             ) }
@@ -52,7 +54,7 @@ fun FormIsian (
             )
             HorizontalDivider(modifier = Modifier
                 .padding(20.dp)
-                .width(250.dp), thickness = Thickness,color = color.Red)
+                .width(250.dp), thickness = Thickness,color = Color.Red)
             Row{
                 jenisK.forEach {
                         item->
@@ -71,6 +73,15 @@ fun FormIsian (
                 thickness = 1.dp,
                 color = Color.Red
             )
+            OutlinedTextField(
+                value = "",
+                singleLine = true,
+                modifier = Modifier
+                    .width(250.dp),
+                label = {Text(text = "Alamat")},
+                onValueChange = {},
+            )
+            Spacer(modifier = Modifier.height(30.dp))
         }
     }
 }
