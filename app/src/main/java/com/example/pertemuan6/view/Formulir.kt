@@ -18,6 +18,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -32,7 +33,7 @@ fun FormIsian (
     Scaffold(modifier = Modifier,
         {
             TopAppBar(
-                title = {Text(stringResource(id= R.string.home), color = color.White)},
+                title = {Text(stringResource(id= R.string.home), color = color.white)},
                 colors = TopAppBarDefaults.mediumTopAppBarColors(
                     colorResource(id = R.color.teal_700))
             ) }
@@ -52,17 +53,24 @@ fun FormIsian (
             HorizontalDivider(modifier = Modifier
                 .padding(20.dp)
                 .width(250.dp), thickness = Thickness,color = color.Red)
-            Row(
+            Row{
                 jenisK.forEach {
-                    item->
+                        item->
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         RadioButton(
                             selected = false,
                             onClick = {item}
                         )
+                        Text(text = item)
                     }
                 }
-            ) { }
+            }
+            HorizontalDivider(modifier = Modifier
+                .padding(20.dp)
+                .width(250.dp),
+                thickness = 1.dp,
+                color = Color.Red
+            )
         }
     }
 }
